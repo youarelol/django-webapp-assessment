@@ -7,9 +7,13 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:090188239408:certificate/5570b695-3f38-438e-b448-5332b1e74e34  # 👈 Your actual ACM ARN
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+
 spec:
   ingressClassName: alb
   rules:
+    - host: test.devjen.shop
     - http:
         paths:
           - path: /
